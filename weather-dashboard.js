@@ -98,10 +98,10 @@ function apiCall(cityName) {
         var latt = response.coord.lat;
         var longt = response.coord.lon;
 
-        var weatherIcon = "http://openweathermap.org/img/w/" + response.weather[0].icon + ".png";
+        var weatherIcon = "https://openweathermap.org/img/w/" + response.weather[0].icon + ".png";
 
 
-        var uviAPI = "http://api.openweathermap.org/data/2.5/uvi?lat=" + latt + "&lon=" + longt + "&APPID=" + appID;
+        var uviAPI = "https://api.openweathermap.org/data/2.5/uvi?lat=" + latt + "&lon=" + longt + "&APPID=" + appID;
 
         $.ajax({
             url: uviAPI,
@@ -117,7 +117,7 @@ function apiCall(cityName) {
 
         });
 
-        var fiveDayForcastURL = "http://api.openweathermap.org/data/2.5/forecast?q=" + cityName + "&units=imperial&cnt=5&appid=" + appID;
+        var fiveDayForcastURL = "https://api.openweathermap.org/data/2.5/forecast?q=" + cityName + "&units=imperial&cnt=5&appid=" + appID;
 
         // var fiveDayForcastURL="https://api.openweathermap.org/data/2.5/forecast?q="+query_param+"&units=imperial&APPID="+appID;
 

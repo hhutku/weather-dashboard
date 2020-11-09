@@ -40,16 +40,21 @@
                     </button>
                     <button id="city2" class="city p-2 btn bg-white border  w-100 text-left pl-4 text-secondary">
                     </button>
-                    <button id="city3"
-                        class="city p-2 btn bg-white border  w-100 text-left pl-4 text-secondary">
+                    <button id="city3" class="city p-2 btn bg-white border  w-100 text-left pl-4 text-secondary">
                     </button>
-                    <button id="city4" class="city p-2 btn bg-white border  w-100 text-left pl-4 text-secondary"> 
+                    <button id="city4" class="city p-2 btn bg-white border  w-100 text-left pl-4 text-secondary">
                     </button>
-                    <button id="city5" class="city p-2 btn bg-white border  w-100 text-left pl-4 text-secondary"> 
+                    <button id="city5" class="city p-2 btn bg-white border  w-100 text-left pl-4 text-secondary">
                     </button>
                     <button id="city6" class="city p-2 btn bg-white border w-100 text-left pl-4 text-secondary">
                     </button>
                     <button id="city7"
+                        class="city p-2 btn bg-white border rounded-bottom w-100 text-left pl-4 text-secondary">
+                    </button>
+                    <button id="city8"
+                        class="city p-2 btn bg-white border rounded-bottom w-100 text-left pl-4 text-secondary">
+                    </button>
+                    <button id="city9"
                         class="city p-2 btn bg-white border rounded-bottom w-100 text-left pl-4 text-secondary">
                     </button>
                 </div>
@@ -57,29 +62,20 @@
             <div class="col-md-8 col-lg-9  bg-white border">
                 <div class="card mb-3 mt-2">
                     <div class="card-header ">
-                        <h2 class="card-title"><span id="resultCity"></span><span id="resultState"></span> <span id="date"></span><img id="weatherImageTitle" src=""></h2>
-                      
+                        <h2 class="card-title"><span id="resultCity"></span><span id="resultState"></span> <span
+                                id="date"></span><img id="weatherImageTitle" src=""></h2>
+
                     </div>
                     <div class="card-body">
                         <p class="card-text resultTemp"></p>
                         <p class="card-text resultHum"></p>
                         <p class="card-text resultWind"></p>
-                        <p class="card-text resultDesc"></p>
                         <p class="card-text resultUv"></p>
                     </div>
                 </div>
                 <div class="forecast m-3">
                     <h3 class="ml-3">5-Day Forecast: </h3>
                     <div class="card-container row justify-content-center">
-                        <div class="col-6 col-md-4 col-lg-2 m-3 card text-white bg-primary mb-3"
-                            style="max-width: 18rem;">
-                            <div id="day0" class="card-body">
-                                <h6 class="card-date"></h6>
-                                <img id="weather_image0" src="">
-                                <p class="card-temp"></p>
-                                <p class="card-humid"></p>
-                            </div>
-                        </div>
                         <div class="col-6 col-md-4 col-lg-2 m-3 card text-white bg-primary mb-3"
                             style="max-width: 18rem;">
                             <div id="day1" class="card-body">
@@ -116,6 +112,15 @@
                                 <p class="card-humid"></p>
                             </div>
                         </div>
+                        <div class="col-6 col-md-4 col-lg-2 m-3 card text-white bg-primary mb-3"
+                            style="max-width: 18rem;">
+                            <div id="day5" class="card-body">
+                                <h6 class="card-date"></h6>
+                                <img id="weather_image5" src="">
+                                <p class="card-temp"></p>
+                                <p class="card-humid"></p>
+                            </div>
+                        </div>
 
 
                     </div>
@@ -125,9 +130,9 @@
             </div>
 
         </div>
-        
+
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
         <script type="text/javascript" src="./weather-dashboard.js"></script>
 
 

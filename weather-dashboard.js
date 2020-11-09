@@ -75,7 +75,7 @@ $(".city").click(function (e) {
 function apiCall(cityName) {
 
        
-    var weather = "http://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&APPID=" + appID;
+    var weather = "https://api.openweathermap.org/data/2.5/weather?q=" + cityName + "&APPID=" + appID;
 
     resultCity.text(cityName);
     $.ajax({

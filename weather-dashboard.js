@@ -6,12 +6,13 @@ var cityName = "Seattle";
 var searchBtn = $('#searchBtn');
 var city1 = $('#city1');
 var cities = $('.city');
-var resultCity = $('.resultCity');
+var resultCity = $('#resultCity');
 var resultTemp = $('.resultTemp');
 var resultHum = $('.resultHum');
 var resultWind = $('.resultWind');
 var resultDesc = $('.resultDesc');
 var resultUv = $('.resultUv');
+var weatherImageTitleEl=$('#weatherImageTitle');
 
  var lasCities=[];
 
@@ -46,11 +47,9 @@ $("#searchBtn").click(function (e) {
 
 lastCities.splice(7, 1);
 lastCities.splice(0, 0, searchCity.val());
-console.log(lastCities)
 
-// lastCitiesArray=lastCities
 
-// console.log(lastCitiesArray);
+
 localStorage.setItem("lastCities",JSON.stringify(lastCities));
 
 // location.reload();
@@ -83,17 +82,19 @@ function apiCall(cityName) {
         method: "GET"
     }).then(function (response) {
 
-        // console.log(response);
+       
 
         var currentTemp = ((response.main.temp - 273.15) * 9 / 5 + 32).toFixed(1);
         var currentHumidity = response.main.humidity;
         var currentWind = ((response.wind.speed) * 2.237).toFixed(1);
         var currentDesc = response.weather[0].description;
 
-        resultTemp.text(currentTemp);
-        resultHum.text(currentHumidity);
-        resultWind.text(currentWind);
-        resultDesc.text(currentDesc);
+        resultTemp.text("Temperature: "+currentTemp);
+        resultHum.text("Humidity: "+currentHumidity);
+        resultWind.text("Wind Speed: "+currentWind);
+        resultDesc.text("Description: "+currentDesc);
+         weatherImageTitleEl.attr("src", "https://openweathermap.org/img/w/" + response.weather[0].icon +".png");
+        
 
         var latt = response.coord.lat;
         var longt = response.coord.lon;
@@ -113,7 +114,7 @@ function apiCall(cityName) {
 
             var uviObj = JSON.parse(uvi);
 
-            resultUv.text(uviObj.value);
+            resultUv.text("UV Index: "+uviObj.value);
 
         });
 
@@ -132,11 +133,11 @@ function apiCall(cityName) {
             for (i = 0; i < 5; i++) { //fiveDays.list.length
 
 
-
                 $("#day" + i).children(".card-date").html(fiveDays.list[i].dt_txt);
-                $("#day" + i).children(".card-icon").html(fiveDays.list[i].weather[0].icon);
-                $("#day" + i).children(".card-temp").html(fiveDays.list[i].main.temp);
-                $("#day" + i).children(".card-humid").html(fiveDays.list[i].main.humidity);
+                // $("#day" + i).children(".card-icon").html(fiveDays.list[i].weather[0].icon);
+                $("#weather_image"+i).attr("src", "https://openweathermap.org/img/w/" + fiveDays.list[i].weather[0].icon +".png");
+                $("#day" + i).children(".card-temp").html("Temp.: "+fiveDays.list[i].main.temp);
+                $("#day" + i).children(".card-humid").html("Humidity: "+fiveDays.list[i].main.humidity);
 
 
             }

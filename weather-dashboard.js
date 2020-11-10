@@ -24,7 +24,7 @@ var lasCities = [];
 
 if (!localStorage.getItem("lastCities")) {
 
-    var cities = ["Seattle", "New York City", "Los Angeles", "Chicago", "Houston", "Phoenix", "Philadelphia", "San Diego", "	Boston", "Miami"];
+    var cities = ["SAN FRANCISCO", "NEW YORK CITY", "LOS ANGELES", "CHICAGO", "HOUSTON", "PHOENIX", "PHILADELPHIA", "SAN DIEGO", "BOSTON", " "];
 
     localStorage.setItem("lastCities", JSON.stringify(cities));
 
@@ -81,13 +81,20 @@ function apiCall(cityName) {
         if (response.name) {
 
 
-            lastCities.splice(9, 1);
-            lastCities.splice(0, 0, capitalizeFirstLetter(cityName));
-            localStorage.setItem("lastCities", JSON.stringify(lastCities));
+             if(!lastCities.includes(cityName.toUpperCase())){
+                console.log("hellp");
+    console.log(cityName);
+ 
+
+                lastCities.splice(9, 1);
+                lastCities.splice(0, 0, (cityName).toUpperCase());
+                localStorage.setItem("lastCities", JSON.stringify(lastCities));
+             }
+         
             cityHistory();
             resultCity.text(cityName.toUpperCase());
 
-            console.log("true");
+           
 
 
             var currentDate = moment().format(" (M/D/YYYY) ");
